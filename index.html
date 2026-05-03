@@ -2,12 +2,170 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>유정헌 | 임상심리상담원</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>유정헌 | 임상심리사</title>
+  <meta name="description" content="유정헌 임상심리사 — 경기북부아동일시보호소 재직 중. 아동 심리상담 전문.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', sans-serif; background: #060d1f; color: #fff; }
+
+    /* 배경 글로우 */
+    .bg-orb1 { position: fixed; top: -120px; left: -80px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .bg-orb2 { position: fixed; bottom: 100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(99,102,241,0.14) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+
+    /* NAV */
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 52px; border-bottom: 1px solid rgba(255,255,255,0.07); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; background: rgba(6,13,31,0.85); }
+    .nav-name { font-size: 20px; font-weight: 700; background: linear-gradient(90deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 0.5px; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; cursor: pointer; letter-spacing: 0.3px; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+
+    /* HERO */
+    .hero { display: flex; align-items: center; gap: 64px; padding: 80px 52px 72px; border-bottom: 1px solid rgba(255,255,255,0.07); position: relative; z-index: 1; }
+    .hero-photo-wrap { position: relative; flex-shrink: 0; }
+    .hero-photo-glow { position: absolute; inset: -8px; border-radius: 18px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); opacity: 0.45; filter: blur(18px); z-index: 0; }
+    .hero-photo { position: relative; z-index: 1; width: 150px; height: 190px; border-radius: 14px; background: linear-gradient(145deg, #1e3a6e, #2d1b69); border: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; overflow: hidden; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
+    .hero-photo .placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .hero-photo .placeholder span { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 20px; background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3); font-size: 12px; color: #60a5fa; letter-spacing: 1.5px; margin-bottom: 16px; }
+    .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #60a5fa; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    .hero-name { font-size: 52px; font-weight: 700; background: linear-gradient(90deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1.5px; margin-bottom: 10px; line-height: 1; }
+    .hero-title { font-size: 18px; color: rgba(255,255,255,0.55); margin-bottom: 5px; }
+    .hero-org { font-size: 15px; color: rgba(255,255,255,0.35); margin-bottom: 24px; }
+    .hero-divider { width: 48px; height: 2px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); margin-bottom: 24px; border-radius: 2px; }
+    .hero-desc { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.9; max-width: 440px; }
+
+    .hero-actions { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+    .btn-primary { padding: 12px 28px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; text-decoration: none; display: inline-block; }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary { padding: 12px 28px; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; font-size: 14px; cursor: pointer; transition: background 0.2s; text-decoration: none; display: inline-block; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+    /* SECTION */
+    .section { padding: 56px 52px; border-bottom: 1px solid rgba(255,255,255,0.07); position: relative; z-index: 1; }
+    .section-head { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+    .section-line { width: 3px; height: 22px; border-radius: 2px; background: linear-gradient(180deg, #3b82f6, #8b5cf6); flex-shrink: 0; }
+    .section-label { font-size: 18px; font-weight: 600; color: #fff; }
+
+    /* CARD */
+    .cards { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 400px; }
+    .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 28px 24px; position: relative; overflow: hidden; transition: border-color 0.2s, background 0.2s; }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
+    .card:hover { border-color: rgba(99,102,241,0.3); background: rgba(255,255,255,0.06); }
+    .card-icon { font-size: 26px; margin-bottom: 14px; }
+    .card-title { font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .card-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.8; }
+
+    /* CAREER */
+    .career-item { display: flex; gap: 20px; align-items: flex-start; padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; }
+    .career-dot { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #8b5cf6); flex-shrink: 0; margin-top: 5px; }
+    .career-period { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 5px; letter-spacing: 0.5px; }
+    .career-role { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .career-place { font-size: 14px; color: rgba(255,255,255,0.45); }
+    .career-tag { display: inline-block; margin-top: 10px; padding: 4px 12px; background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.25); border-radius: 20px; font-size: 12px; color: #60a5fa; }
+
+    /* FOOTER */
+    .footer { padding: 28px 52px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.2); letter-spacing: 0.5px; position: relative; z-index: 1; }
+
+    /* 반응형 */
+    @media (max-width: 680px) {
+      .nav { padding: 16px 24px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 13px; }
+      .hero { flex-direction: column; gap: 36px; padding: 48px 24px; align-items: flex-start; }
+      .hero-name { font-size: 36px; }
+      .section { padding: 40px 24px; }
+      .footer { padding: 24px; }
+    }
+  </style>
 </head>
 <body>
-  <h1>유정헌</h1>
-  <h2>임상심리상담원</h2>
-  <p>경기북부아동일시보호소 재직 중</p>
-  <p>아동 심리상담 전문</p>
+
+<div class="bg-orb1"></div>
+<div class="bg-orb2"></div>
+
+<nav class="nav">
+  <div class="nav-name">유정헌</div>
+  <div class="nav-links">
+    <a href="#intro">소개</a>
+    <a href="#career">경력</a>
+    <a href="#specialty">전문분야</a>
+    <a href="#contact">연락하기</a>
+  </div>
+</nav>
+
+<div class="hero" id="intro">
+  <div class="hero-photo-wrap">
+    <div class="hero-photo-glow"></div>
+    <div class="hero-photo">
+      <!-- 사진을 넣으려면 아래 주석을 해제하고 photo.jpg 파일을 같은 폴더에 넣으세요 -->
+      <!-- <img src="photo.jpg" alt="유정헌 프로필 사진"> -->
+      <div class="placeholder">
+        <div style="font-size:36px; opacity:0.35;">🖼</div>
+        <span>사진 업로드</span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="hero-badge"><span class="hero-badge-dot"></span>재직 중</div>
+    <div class="hero-name">유정헌</div>
+    <div class="hero-title">임상심리사</div>
+    <div class="hero-org">경기북부아동일시보호소</div>
+    <div class="hero-divider"></div>
+    <div class="hero-desc">아동의 심리적 안정과 건강한 성장을 위해<br>전문적인 심리상담 서비스를 제공합니다.</div>
+    <div class="hero-actions">
+      <a href="https://linkedin.com/in/yoojeongheon" target="_blank" class="btn-primary">LinkedIn 프로필</a>
+      <a href="mailto:" class="btn-secondary">이메일 문의</a>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="specialty">
+  <div class="section-head">
+    <div class="section-line"></div>
+    <div class="section-label">전문 분야</div>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🧠</div>
+      <div class="card-title">아동 심리상담</div>
+      <div class="card-desc">아동의 심리적 어려움을 전문적으로 상담하고 치료합니다.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="career">
+  <div class="section-head">
+    <div class="section-line"></div>
+    <div class="section-label">경력</div>
+  </div>
+  <div class="career-item">
+    <div class="career-dot"></div>
+    <div>
+      <div class="career-period">현재 재직 중</div>
+      <div class="career-role">임상심리상담원</div>
+      <div class="career-place">경기북부아동일시보호소</div>
+      <div class="career-tag">아동 심리상담 전문</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="contact">
+  <div class="section-head">
+    <div class="section-line"></div>
+    <div class="section-label">연락하기</div>
+  </div>
+  <div class="hero-actions">
+    <a href="https://linkedin.com/in/yoojeongheon" target="_blank" class="btn-primary">LinkedIn 프로필</a>
+    <a href="mailto:" class="btn-secondary">이메일 문의</a>
+  </div>
+</div>
+
+<div class="footer">yoojeongheon.github.io · 유정헌 임상심리사</div>
+
 </body>
 </html>
