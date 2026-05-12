@@ -1,7 +1,8 @@
 # 유정헌 임상심리사 프로필
 
-유정헌 임상심리사의 개인 프로필 사이트입니다.
+유정헌 임상심리사의 개인 프로필 사이트입니다. 심리상담 플랫폼 인시릭(Insyric)을 운영합니다.
 
 - Website: https://yoojeongheon.github.io/
+- Insyric: https://insyric.com/
 - Specialty: 아동 심리상담
 - Organization: 경기북부아동일시보호소
